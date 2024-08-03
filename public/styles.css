@@ -1,0 +1,333 @@
+:root {
+    --bg-color: rgb(17, 21, 26);
+    --card-color: rgb(23, 23, 23);
+    
+    
+    --border: #5e07e9;
+    --g1: rgb(236, 64, 122);
+    --g2: #5e07e9;
+    --g3: #14D82E;
+
+  }
+  
+  body {
+    align-items: center;
+    background-color: var(--bg-color);
+    display: flex;
+    height: 100vh;
+    justify-content: flex-start;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    flex-direction: column;
+
+  }
+
+
+  #cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 44px;  
+    max-width: 916px;
+    width: calc(100% - 20px);
+    margin-top: 80px; /* Adjust this value to move the cards higher */
+
+  }
+  
+  #cards:hover > .card::after {
+    opacity: 1;
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    position: relative;
+    width: 25%;  /* Adjusted width to fit three cards in a row */
+
+  }
+  
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card::before,
+  .card::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+  }
+  
+  .card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(45,186,78, 0.06),
+      transparent 40%
+    );
+    z-index: 3;
+  }
+  
+  .card::after {  
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(45,186,78, 0.4),
+      transparent 40%
+    );
+    z-index: 1;
+  }
+  
+  .card > .card-content {
+    background-color: var(--card-color);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    inset: 1px;
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+  }
+
+  
+  /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
+  
+  h1, h2, h3, h4, span {
+    color: rgb(240, 240, 240);
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 400;
+    margin: 0px;
+  }
+
+  
+  .card-info-wrapper {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: flex-start; /* Align items to the right */
+    margin-bottom: 10px;
+  }
+  
+  .card-info {
+    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .card-info > i {  
+    font-size: 1em;
+    height: 20px;
+    line-height: 20px;
+  }
+  
+  .card-info-title > h3 {
+    font-size: 1.5em;
+    line-height: 20px;
+  }
+  
+  .card-info-title > h4 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85em;
+    margin-top: 8px;
+  }
+  
+  /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
+  
+  @media(max-width: 1000px) {
+    body {
+      align-items: flex-start;  
+      overflow: auto;
+    }
+    
+    #cards {    
+      max-width: 1000px;
+      padding: 10px 0px;
+    }
+    
+    .card {
+      flex-shrink: 1;
+      width: calc(50% - 4px);
+    }
+  }
+  
+  @media(max-width: 500px) {
+    .card {
+      height: 240px;
+    }
+    
+    .card-image {
+      height: 120px;  
+    }
+    
+    .card-image > i {
+      font-size: 4em;
+    }
+      
+    .card-info-wrapper {
+      padding: 0px 10px;
+    }
+    
+    .card-info > i { 
+      font-size: 0.8em; 
+    }
+    
+    .card-info-title > h3 {
+      font-size: 0.9em;
+    }
+  
+    .card-info-title > h4 {
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+  }
+  
+  @media(max-width: 320px) {
+    .card {
+      width: 100%;
+    }
+  }
+  
+ /*---------------------------- SUMBIT BUTTON ------------------------*/
+
+
+    
+  .card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if they overflow */
+    gap: 10px; /* Adjust the gap between cards */
+    justify-content: center; /* Center the cards horizontally */
+  }
+
+  .card, .submit-card {
+    flex: 1 1 0; /* Ensure all cards have the same flex properties */
+    cursor: pointer;
+    position: relative;
+    width: 100%; /* Ensure the width is 100% of the flex item */
+  }
+
+
+  .submit-card {
+    aspect-ratio: 1 / 1.6;
+    border: 0.5vmin solid var(--border);
+    cursor: pointer;
+    position: relative;
+    width: 25%;  /* Adjusted width to fit three cards in a row */
+    border-radius: 10px; 
+    
+  }
+  
+  
+  .submit-card:hover:before {
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
+  }
+  
+  .submit-card:hover > .submit-card-content {
+    background-position: -10% 0%;
+  }
+  
+  .submit-card:hover > .submit-card-icon {
+    color: white; 
+  }
+  
+  .submit-card:hover > .submit-card-content > .submit-card-subtitle > .submit-card-subtitle-word {  
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 0ms, transform 200ms cubic-bezier(.90, .06, .15, .90);
+  }
+  
+  .submit-card:before {
+    background: linear-gradient(
+      130deg, 
+      transparent 0% 33%, 
+      var(--g1) 66%, 
+      var(--g2) 83.5%, 
+      var(--g3) 100%
+    );
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    content: "";
+    height: 100%;
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    transition: background-position 350ms ease, transform 350ms ease;
+    width: 100%;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  
+  .submit-card-content {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.2) 8%, 
+      transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    height: calc(100% - 10vmin);
+    padding: 5vmin;
+    position: relative;
+    transition: background-position 350ms ease;
+    width: calc(100% - 10vmin);
+    z-index: 2;
+  }
+  
+  .submit-card-title,
+  .submit-card-subtitle {
+    color: white;
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: 400;
+
+  }
+  
+  .submit-card-title {
+    font-size: 1.5em;
+    height: 20px;
+    line-height: 20px;
+    
+    position: absolute; /* Position the elements absolutely */
+    left: 1vmin; /* Adjust the right position as needed */
+    top: 1vmin; /* Adjust the top position as needed */
+    text-align: left; /* Align text to the right */
+  }
+  
+  .submit-card-subtitle {
+    font-size: 3em;
+    height: 20px;
+    line-height: 50px;
+    margin-top: 8vmin;
+    position: absolute; /* Position the elements absolutely */
+    left: 1vmin; /* Adjust the right position as needed */
+    top: 1vmin; /* Adjust the top position as needed */
+    text-align: left; /* Align text to the right */
+
+  }
+  
+  .submit-card-subtitle-word {
+    display: inline-block;
+    margin: 0vmin 0.3vmin;
+    opacity: 0;
+    position: relative;  
+    transform: translateY(40%);
+    transition: none;
+  }
+  
+
+  .top-left-logo {
+    position: fixed;
+    top: -70px;
+    left: -33px; 
+    width: 200px; 
+    height: auto;
+    z-index: 1001; 
+}
+
+  

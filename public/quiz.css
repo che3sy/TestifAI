@@ -1,0 +1,64 @@
+.question-title {
+    margin-top: -5px; 
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.option-button {
+    box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+    transition: all .5s ease; /* back to normal */
+    will-change: transform, box-shadow; /* Optimize rendering */
+    font-family: inherit; /* Ensure font consistency */
+    color: inherit; /* Ensure color consistency */
+}
+
+.option-button:hover {
+   transform: translateY(-3px) scale(1.03); /* Use translateY for smoother animation */
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all 0.4s ease-in-out; /* zoom in */
+    font-family: inherit; /* Ensure font consistency */
+    color: inherit; /* Ensure color consistency */
+}
+
+
+.counter {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+
+.new-quiz-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #5e07e9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Red Hat Display', sans-serif;
+    position: relative;
+    margin-top: 30px;
+    transition: all .5s ease; 
+}
+
+.new-quiz-button:hover {
+    background-color: green;
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all 0.4s ease-in-out; 
+}
+
+.top-left-logo {
+    position: fixed;
+    top: -70px;
+    left: -33px; 
+    width: 200px; 
+    height: auto;
+    z-index: 1001; 
+}

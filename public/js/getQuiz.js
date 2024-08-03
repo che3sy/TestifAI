@@ -1,0 +1,44 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const inputBox = document.querySelector('.overlay-input');
+    const buttons = document.querySelectorAll('.rectangle-button');
+
+    console.log('Input Box:', inputBox);
+    console.log('Buttons:', buttons);
+
+
+
+    if (buttons.length > 0) {
+        buttons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                const buttonValue = button.textContent;
+                console.log('Button Value:', buttonValue);
+    
+                // Get the parent div of the clicked button
+                const parentDiv = button.closest('.button-overlay');
+    
+                // Add focused class to the clicked button within the same parent div
+                const sectionButtons = parentDiv.querySelectorAll('.rectangle-button');
+                sectionButtons.forEach(btn => btn.classList.remove('focused'));
+                button.classList.add('focused');
+    
+                // Stop propagation to prevent global click listener from removing focus
+                event.stopPropagation();
+            });
+        });
+    } else {
+        console.error('Buttons not found');
+    }
+    // Add a global click listener to remove focus from input box when clicking elsewhere
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.overlay-input')) {
+            if (inputBox) {
+                inputBox.classList.remove('focused');
+            }
+        }
+    });
+});
+
+// Define the handleButtonClick function
+function handleButtonClick(buttonId) {
+    console.log('Button clicked:', buttonId);
+}
