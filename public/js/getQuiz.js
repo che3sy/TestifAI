@@ -42,3 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function handleButtonClick(buttonId) {
     console.log('Button clicked:', buttonId);
 }
+
+
+
+
+fetch('https://x4f6ezfwiloumemi2tkgozxltu0ufwjn.lambda-url.us-west-2.on.aws/make_quiz?subject=math&questionNum=5&difficulty=easy')

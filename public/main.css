@@ -2,6 +2,7 @@ body {
     background-color:rgb(17, 21, 26);
     color: white;
     font-family: 'Red Hat Display', sans-serif;
+    
 }
 
 hr {
@@ -18,7 +19,6 @@ section {
     display: grid;
     place-items: center;
     min-height: 75vh;
-    align-content: center;
 }
 
 h1 {
@@ -28,7 +28,7 @@ h1 {
 
 .hidden {
     opacity: 0;
-    transition: all 3s;
+    transition: all 4s;
     filter: blur(5px);
     transform: translateX(-100px);
 }
@@ -220,12 +220,7 @@ h1 {
 
 
 
-
-
-
-
-
-#cards {
+.cards {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;  
@@ -236,7 +231,21 @@ h1 {
 
 }
 
-#cards:hover > .card::after {
+
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;  
+  width: calc(100% - 20px);
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+
+}
+
+.cards:hover > .card::after {
   opacity: 1;
 }
 
@@ -315,7 +324,7 @@ h1, h2, h3, h4, span {
   overflow: hidden;
 
 }
-/* Add keyframes for fade-in and fade-out animations */
+
 @keyframes fadeIn {
   from {
       opacity: 0.75;
@@ -325,8 +334,6 @@ h1, h2, h3, h4, span {
   }
 }
 
-
-/* Apply the fade animations to the images */
 .card-content img.card-image-1 {
   animation: fadeIn 0.25s forwards;
 }
@@ -444,6 +451,70 @@ h1, h2, h3, h4, span {
 }
 
 
+
+
+
+.create-quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh; /* Adjust as needed */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  outline: inherit;
+}
+
+
+.create-quiz-content {
+  position: relative; /* Ensure the container is positioned */
+}
+
+.create-quiz-content .quiz-button-img,
+.create-quiz-content .quiz-button-img2 {
+  position: absolute; /* Position images absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.create-quiz-content .quiz-button-img {
+  z-index: 2; /* Place this image on top */
+}
+
+.create-quiz-content .quiz-button-img2 {
+  z-index: 1; /* Place this image below */
+}
+
+
+
+.create-quiz-content .quiz-button-img {
+  content: url("webassets/Component 7 (2).png");
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-quiz-content:hover .quiz-button-img {
+  animation: horizontalWipe 1s forwards;
+}
+
+@keyframes horizontalWipe {
+  0% {
+
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+
+    clip-path: inset(0 100% 0 0);
+  }
+}
 
 
 
