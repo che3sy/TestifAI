@@ -1,0 +1,451 @@
+body {
+    background-color:rgb(17, 21, 26);
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: white; 
+    margin: 20px 0; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+    margin: 20px auto;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    min-height: 75vh;
+    align-content: center;
+}
+
+h1 {
+    text-align: center; 
+    margin: 0; 
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 3s;
+    filter: blur(5px);
+    transform: translateX(-100px);
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+
+
+/* Existing .question-card and .option-button styles */
+.question-card {
+    position: relative;
+    margin: 20px auto;
+    background-color: rgb(23, 23, 23);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    color: #ffffff;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.question-card p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.question-title {
+    margin-top: -5px; 
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+
+.option-button {
+    background: rgb(23, 23, 23);
+    color: #ffffff;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-color: rgba(45,186,78, 0.4);
+}
+
+
+
+.scroller {
+    max-width: 975px;
+    margin: 0 auto;
+    margin-top: -60px;
+  }
+  
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+  
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+  
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+  
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+  }
+  
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+
+  @keyframes blurEffect {
+    0% {
+      filter: blur(10px);
+    }
+    100% {
+      filter: blur(0);
+    }
+  }
+  
+  .scroller {
+    animation: blurEffect 8s ease-out;
+  }
+
+
+  .logo-container {
+    position: absolute;
+    top: -190px; /* Adjust this value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Ensure it is above other elements */
+}
+
+.logo-container img {
+    width: 1000px; /* Adjust the size as needed */
+    height: auto;
+    animation: zoom 5s forwards; /* Apply the fade-out animation */
+}
+
+.logo-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  
+  background-color: rgb(23, 23, 23); /* Adjust the color and opacity as needed */
+  z-index: -1; /* Ensure it is behind the image */
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgba(127, 207, 145, 0.5);
+  animation: fadeOut 8s forwards; /* Apply the fade-out animation */
+
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+
+@keyframes zoom {
+  from {
+    width: 1000px;
+  }
+  to {
+    width: 2000px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;  
+  width: calc(100% - 20px);
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+
+}
+
+#cards:hover > .card::after {
+  opacity: 1;
+}
+
+.card {
+  flex: 0 0 auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  height: 260px;
+  flex-direction: column;
+  position: relative;
+  width: 300px;  
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(45,186,78, 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.card::after {  
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(45,186,78, 0.4),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card > .card-content {
+  background-color: rgb(23, 23, 23);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+
+h1, h2, h3, h4, span {
+  color: rgb(240, 240, 240);
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.card-image {
+  align-items: center;
+  display: flex;
+  height: 140px;
+  justify-content: center;
+  overflow: hidden;
+
+}
+/* Add keyframes for fade-in and fade-out animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0.75;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
+/* Apply the fade animations to the images */
+.card-content img.card-image-1 {
+  animation: fadeIn 0.25s forwards;
+}
+
+.card-content img.card-image-2 {
+  display: none;
+
+}
+
+.card:hover .card-content img.card-image-1 {
+  display: none;
+
+}
+
+.card:hover .card-content img.card-image-2 {
+  display: block;
+  animation: fadeIn 0.25s forwards;
+}
+
+
+.card-info-wrapper {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0px 20px;
+  
+}
+
+.card-info {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+}
+
+.card-info > img {  
+  font-size: 1em;
+  height: 20px;
+  line-height: 20px;
+}
+
+.card-info-title > h3 {
+  font-size: 1.1em;
+  line-height: 20px;
+
+}
+
+.card img {
+  width: 100%;
+  height: 75%;
+  object-fit: contain; 
+}
+
+.card-info-title > h4 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+  margin-top: 8px;
+
+}
+
+/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
+
+@media(max-width: 1000px) {
+  body {
+    align-items: flex-start;  
+    overflow: auto;
+  }
+  
+  #cards {    
+    max-width: 1000px;
+    padding: 10px 0px;
+  }
+  
+  .card {
+    flex-shrink: 1;
+    width: calc(50% - 4px);
+  }
+}
+
+@media(max-width: 500px) {
+  .card {
+    height: 180px;
+  }
+  
+  .card-image {
+    height: 80px;  
+  }
+  
+  .card-image > i {
+    font-size: 3em;
+  }
+    
+  .card-info-wrapper {
+    padding: 0px 10px;
+  }
+  
+  .card-info > i { 
+    font-size: 0.8em; 
+  }
+  
+  .card-info-title > h3 {
+    font-size: 0.9em;
+  }
+
+  .card-info-title > h4 {
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
+}
+
+@media(max-width: 320px) {
+  .card {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+

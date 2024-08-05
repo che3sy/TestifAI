@@ -6,6 +6,7 @@
     <title>Make Quiz</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap">
+    <link rel="icon" href="assets\favicon.ico" type="image/x-icon"> 
     <style>
         .overlay-input {
             width: 80%; /* Adjust width as needed */
@@ -17,7 +18,7 @@
             color: #ffffff; /* Ensure the text color is black */
             z-index: 10; /* Ensure the input is on top of other elements */
             position: relative;
-            top: 17%; /* Adjust position as needed */
+            top: 20%; /* Adjust position as needed */
             left: 5%;
         }
         .overlay-input:hover {
@@ -54,7 +55,7 @@
         
         .button-overlay {
             position: absolute; /* Position absolute for overlay */
-            top: 20%; /* Adjust position as needed */
+            top: 22%; /* Adjust position as needed */
             left: 10%;
             z-index: 10; /* Ensure the button div is on top of other elements */
             width: 100%; /* Adjust width as needed */
@@ -87,7 +88,7 @@
                 <div class="card-info-wrapper">
                     <div class="card-info-title">
                         <h3>Subject</h3>  
-                        <h4>Places to be apart. Wait, what?</h4>
+                        <h4>More narrow or specfic subjects will yield better results</h4>
                     </div>    
                 </div>
             </div>
@@ -103,7 +104,7 @@
                 <div class="card-info-wrapper">
                     <div class="card-info-title">
                         <h3>Amount of Questions</h3>  
-                        <h4>A single corn. Er, I mean horn.</h4>
+                        <h4>Number of questions, more questions will take longer to generate</h4>
                     </div>
                 </div>
             </div>
@@ -119,7 +120,7 @@
                 <div class="card-info-wrapper">
                     <div class="card-info-title">
                         <h3>Difficulty</h3>  
-                        <h4>These absolutely deserve to exist.</h4>
+                        <h4>Difficulty of the questions in the test</h4>
                     </div>    
                 </div>
             </div>
@@ -131,7 +132,7 @@
             </div>
           </button>
     </div>
-    <script src="js/cards.js"></script>
-    <script src="js/getQuiz.js"></script>
+    <script defer src="js/cards.js"></script>
+    <script defer src="js/getQuiz.js"></script>
 </body>
 </html>
