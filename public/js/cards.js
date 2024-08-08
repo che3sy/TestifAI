@@ -53,22 +53,5 @@ document.querySelectorAll('.rectangle-button').forEach(button => {
   });
 });
 
-submitButton.addEventListener('click', () => {
-  if (submitButton.classList.contains("clickable")) {
-      const inputBox = document.querySelector('.overlay-input');
-      const selectedButtons = document.querySelectorAll('.rectangle-button.focused');
-
-      const inputValue = inputBox.value.trim();
-      const selectedValues = Array.from(selectedButtons).map(button => button.textContent.trim());
-
-      const urlParams = new URLSearchParams({
-          subject: inputValue,
-          amount: selectedValues[0],
-          difficulty: selectedValues[1]
-      });
-
-      window.location.href = `quiz.html?${urlParams.toString()}`;
-  }
-});
 
 createSubtitle("fill out form");

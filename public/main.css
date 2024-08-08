@@ -152,38 +152,8 @@ h1 {
   }
 
 
-  .logo-container {
-    position: absolute;
-    top: -190px; /* Adjust this value as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10; /* Ensure it is above other elements */
-}
 
-.logo-container img {
-    width: 1000px; /* Adjust the size as needed */
-    height: auto;
-    animation: zoom 5s forwards; /* Apply the fade-out animation */
-}
 
-.logo-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 550px; /* Adjust the width as needed */
-  height: 300px; /* Adjust the height as needed */
-  
-  background-color: rgb(23, 23, 23); /* Adjust the color and opacity as needed */
-  z-index: -1; /* Ensure it is behind the image */
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 50px;
-  box-shadow: 0 0 5px rgba(127, 207, 145, 0.5);
-  animation: fadeOut 8s forwards; /* Apply the fade-out animation */
-
-}
 
 @keyframes fadeOut {
   from {
@@ -520,3 +490,217 @@ h1, h2, h3, h4, span {
 
 
 
+body {
+  background-image: url('webassets/Gradient.svg');
+  background-size: cover; /* Adjusts the size of the background */
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-position: center center; /* Centers the background */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Removes default margin */
+  background-repeat: repeat-y; /* This will repeat the background image both horizontally and vertically */
+}
+
+
+
+.image-container {
+  position: fixed;
+  inset: 0px;
+  width: auto;
+  height: 5rem;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: auto;
+
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  
+}
+
+.animated-image {
+  width: 1000px;
+  height: auto;
+  animation: horizontalWipe2 2s forwards;
+  animation-delay: 3s;
+}
+
+.content {
+  opacity: 0;
+  transform: translateY(500px);
+  animation: fadeUp 3s forwards;
+  animation-delay: 9s;
+}
+
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+@keyframes horizontalWipe2 {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(30% 47.7% 30% 52.3%);
+  }
+}
+
+
+
+.subtitle {
+  font-size: 4em;
+  font-weight: 700;
+}
+
+
+.logo-container {
+  position: absolute;
+  top: -190px; /* Adjust this value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; /* Ensure it is above other elements */
+}
+
+.animated-star{
+  width: 1000px;
+  height: auto;
+  animation: moveDown 3s forwards, moveUpAndRotate 6s forwards;
+  transform-origin: top;
+  animation-delay: 3s, 6s;
+  z-index: 2; 
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(150px); /* Adjust the value as needed */
+  }
+}
+
+
+@keyframes moveUpAndRotate {
+  0% {
+    transform: translateY(150px) rotate(0deg) scale(1); /* Start from the end position of moveDown */
+  }
+  100% {
+    transform: translateY(-32vh) rotate(360deg) scale(0.4); /* Move up and rotate */
+  }
+}
+
+
+
+
+.navbar {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+
+
+  width: 25%;
+  height: 60px; /* Adjust the height as needed */
+  background-color: rgb(23, 23, 23); /* Background color of the navbar */
+  display: flex;
+  justify-content: center; /* Center the item horizontally */
+  align-items: center; /* Center the item vertically */
+  position: fixed; /* Fix the navbar at the top */
+  
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; /* Ensure it is above other elements */
+  border-radius: 45px;
+}
+
+.navbar-item {
+  color: white; /* Text color */
+  font-size: 24px; /* Adjust the font size as needed */
+  text-align: center;
+  margin-right: 7vh;
+
+}
+
+.navbar-item2{
+  color: white; /* Text color */
+  font-size: 24px; /* Adjust the font size as needed */
+  text-align: center;
+  margin-right: 1vh;
+
+}
+
+
+
+section {
+
+  background-size: contain; /* Adjusts the size of the background */
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-position: center; 
+}
+
+
+
+#first-section {
+  height: 100vh; /* Adjust the height as needed */
+  padding-bottom: 50px; /* Add padding to the bottom if needed */
+  background-size: cover; /* Adjusts the size of the background */
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-position: center; 
+  padding-top: 50px;
+  z-index: -1;
+}
+
+
+.tracking-dots {
+  
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.dot {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1001;
+}
+
+.dot.active {
+  opacity: 1;
+  transform: scale(1.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+
+
+
+
+
+
+.no-scroll {
+  overflow: hidden;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}

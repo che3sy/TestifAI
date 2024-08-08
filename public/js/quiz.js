@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function redirectToMakeQuiz() {
-    window.location.href = 'make_quiz.html';
+    window.location.href = 'pickQuiz.html';
 }
 
 

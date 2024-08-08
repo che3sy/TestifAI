@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <title>Home page</title>
 </head>
-<body>
+<body class="no-scroll"> 
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
@@ -32,10 +32,29 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
     </script>
-    <div class="logo-container">
-      <img src="assets\full-logo-notxt.svg" alt="Logo" class = "hidden">
+      
+      <div class="tracking-dots">
+        <div class="dot" data-section="first-section"></div>
+        <div class="dot" data-section="second-section"></div>
+        <div class="dot" data-section="third-section"></div>
+        <div class="dot" data-section="fourth-section"></div>
+        <div class="dot" data-section="fifth-section"></div>
+      </div>
+
+    <div class="image-container">
+      <img src="webassets\Component 9.svg" alt="Logo" class="animated-image">
+
   </div>
-    <section class="hidden">
+  <div class="image-container">
+    <img src="webassets\Component 8.svg" alt="Logo" class="animated-star" id="animated-star">
+  </div>
+  <nav class="navbar">
+    <div class="navbar-item">Create</div>
+    <div class="navbar-item2">Quiz</div>
+  </nav>
+  <div class="content"> 
+  <div class="backimg">
+    <section class="hidden" id="first-section" >
       
     <div class="scroller" data-speed="fast" data-direction="right">
       <div class="scroller__inner">
@@ -79,19 +98,16 @@
                               <div><button class="option-button">(a) 0</button><button class="option-button">(b) 1</button><button class="option-button">(c) 2</button><button class="option-button">(d) 3
       </div>
   </div>
-    
-  </section>
-    
-      <section class="hidden">
-        <div>
-          <h1>Welcome to my website!</h1>
-          <p>This is a test HTML page.</p>
-          <hr class="split">
-        </div>    
-      </section>
+
+</div>
+<div>
+  <h1 class = "subtitle">Revolutionizing testing, one quiz at a time</h1>
+  <hr class="split">
+</div> 
+</section>
+
       
-      
-      <section class="hidden">
+      <section class="hidden" id="second-section">
         <div>
           <h1>Welcome to my website!</h1>
           <p>This is a test HTML page.</p>
@@ -99,7 +115,7 @@
         </div>    
       </section>
        
-      <section class = "hidden">
+      <section class = "hidden" id="third-section">
       <div class="cards">
         <div class="card">
             <div class="card-content">
@@ -141,7 +157,7 @@
 </section>  
 
 
-<section class = "hidden">
+<section id="fourth-section" class = "hidden">
   <div class="cards">
     <div class="card">
         <div class="card-content">
@@ -182,17 +198,25 @@
 </div>
 </section> 
       
-
-<div class="create-quiz">
-<button class="create-quiz" id="quiz-button">
-    <div class="create-quiz-content">
-      <img src="webassets/7Component 7.png" alt="Quiz Image" class="quiz-button-img2">
-      <img src="webassets/Component 7 (2).png" alt="Quiz Image" class="quiz-button-img">
-      
+  <section id="fifth-section"  class="hidden">
+    <div class="create-quiz">
+    <button class="create-quiz" id="quiz-button">
+        <div class="create-quiz-content">
+          <img src="webassets/7Component 7.png" alt="Quiz Image" class="quiz-button-img2">
+          <img src="webassets/Component 7 (2).png" alt="Quiz Image" class="quiz-button-img">
+          
+        </div>
+    </button>
     </div>
-</button>
-</div>
+  </section>
 
+
+  
+
+
+
+
+</div>
       <script defer src="js/main.js"></script>
 </body>
 </html>

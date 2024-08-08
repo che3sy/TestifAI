@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick Quiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap">
+    <link rel="icon" href="assets\favicon.ico" type="image/x-icon"> 
+</head>
+<style> 
+ :root {  
+            --purple: rgb(123, 31, 162);
+            --violet: rgb(103, 58, 183);
+            --pink: rgb(244, 143, 177);
+        }
+    body {
+    font-family: 'Red Hat Display', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(17, 21, 26);
+    background: url('webassets/SGradient.svg') no-repeat center center fixed; 
+    background-size: cover; 
+}
+
+.quiz-card {
+    background-color: rgb(17, 21, 26);
+    border: 1px solid #14d82e;
+    
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(20, 216, 46, 0.2);
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+
+    background: url('webassets/MGradient.svg') no-repeat center center fixed; 
+    background-size: contain; 
+}
+
+.quiz-card h2 {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.quiz-option {
+    background-color: #5e07e9;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    transition: background-color 0.3s;
+    font-family: 'Red Hat Display', sans-serif;
+    transition: all .5s ease; 
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(94, 7, 233, 0.2); 
+}
+
+.quiz-option:hover {
+    background-color: green;
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all 0.4s ease-in-out; 
+}
+
+.top-left-logo {
+    position: fixed;
+    top: 10px;
+    left: 5px; 
+    width: 150px; 
+    height: auto;
+    z-index: 1001; 
+}
+
+.magic {
+    display: inline-block;
+    position: relative;
+}
+
+.magic-star {
+    --size: clamp(20px, 1.5vw, 30px);
+    animation: scale 700ms ease forwards;
+    display: block;
+    height: var(--size);
+    left: var(--star-left);
+    position: absolute;
+    top: var(--star-top);
+    width: var(--size);
+}
+
+.magic-star > svg {
+    animation: rotate 1000ms linear infinite;
+    display: block;
+    opacity: 0.7;
+}
+
+.magic-star > svg > path {
+    fill: var(--violet);
+}
+
+@keyframes scale {
+    from, to {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+
+
+</style>
+
+
+<body>
+    <img src="assets\full-logo-notxt.svg" alt="Logo" class="top-left-logo" onclick="window.location.href='index.html'">
+    <div class="quiz-card">
+        <h2 class="magic">
+            Select Quiz Type
+            <span class="magic-star"><svg viewBox="0 0 512 512"><path d="M256 0l-35.3 114.7L106 106l35.3 114.7L0 256l114.7 35.3L106 406l114.7-35.3L256 512l35.3-114.7L406 406l-35.3-114.7L512 256l-114.7-35.3L406 106l-114.7 35.3L256 0z"/></svg></span>
+            <span class="magic-star"><svg viewBox="0 0 512 512"><path d="M256 0l-35.3 114.7L106 106l35.3 114.7L0 256l114.7 35.3L106 406l114.7-35.3L256 512l35.3-114.7L406 406l-35.3-114.7L512 256l-114.7-35.3L406 106l-114.7 35.3L256 0z"/></svg></span>
+            <span class="magic-star"><svg viewBox="0 0 512 512"><path d="M256 0l-35.3 114.7L106 106l35.3 114.7L0 256l114.7 35.3L106 406l114.7-35.3L256 512l35.3-114.7L406 406l-35.3-114.7L512 256l-114.7-35.3L406 106l-114.7 35.3L256 0z"/></svg></span>
+        </h2>
+        <div class="quiz-options">
+            <button class="quiz-option" onclick="location.href='make_free.html'">Free Response Quiz</button>
+            <button class="quiz-option" onclick="location.href='make_quiz.html'">Multiple Choice Quiz</button>
+        </div>
+    </div>
+</body>
+<script>
+    let index = 0,
+    interval = 1000;
+
+const rand = (min, max) => 
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
+const animate = star => {
+  star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
+  star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
+
+  star.style.animation = "none";
+  star.offsetHeight;
+  star.style.animation = "";
+}
+
+for(const star of document.getElementsByClassName("magic-star")) {
+  setTimeout(() => {
+    animate(star);
+    
+    setInterval(() => animate(star), 1000);
+  }, index++ * (interval / 3))
+}
+</script>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap">
+    <link rel="icon" href="assets\favicon.ico" type="image/x-icon"> 
+    <style>
+        .overlay-input {
+            width: 80%; /* Adjust width as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Red Hat Display', sans-serif;
+            background-color: rgb(23, 23, 23); 
+            color: #ffffff; /* Ensure the text color is black */
+            z-index: 10; /* Ensure the input is on top of other elements */
+            position: relative;
+            top: 20%; /* Adjust position as needed */
+            left: 5%;
+        }
+        .overlay-input:hover {
+            border-color: #5e07e9; /* Change border color on hover */
+        }
+        .overlay-input:focus {
+            border-color: #14d82e; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+        .rectangle-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(100% - 40px); /* Adjust width to account for padding */
+            height: 50px; /* Adjust height as needed */
+            background-color: rgb(23, 23, 23); /* Adjust background color as needed */
+            color: #ffffff; /* Button text color */
+            margin: 10px 0; /* Add some space between buttons */
+            padding-left: 20px; /* Add padding to the left */
+            padding-right: 20px; /* Add padding to the right */
+            border: 1px solid #ccc;
+            border-radius: 4px; /* Add border radius for rounded corners */
+            font-family: 'Red Hat Display', sans-serif;
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        .rectangle-button:hover {
+            background-color: #5e07e9; /* Change background color on hover */
+        }
+        .rectangle-button:focus {
+            outline: none; /* Remove default outline */
+            border-color: #14d82e; /* Change border color on focus */
+            
+        }
+        
+        .button-overlay {
+            position: absolute; /* Position absolute for overlay */
+            top: 22%; /* Adjust position as needed */
+            left: 10%;
+            z-index: 10; /* Ensure the button div is on top of other elements */
+            width: 100%; /* Adjust width as needed */
+        }
+        .card {
+            position: relative; /* Ensure the card is positioned relative for absolute positioning inside */
+        } 
+
+        .focused {
+            border: 2px solid #14d82e; /* Example style to indicate focus */
+            outline: none;
+        }
+
+        /* Add button reset styles */
+        button.submit-card {
+            background: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+    
+    </style>
+</head>
+<body>
+    <img src="assets\full-logo-notxt.svg" alt="Logo" class="top-left-logo" onclick="window.location.href='index.html'">
+    <div id="cards">
+        <div class="card">
+            <input type="text" class="overlay-input" id="subject" name="subject" placeholder="Enter subject">
+            <div class="card-content">
+                <div class="card-info-wrapper">
+                    <div class="card-info-title">
+                        <h3>Subject</h3>  
+                        <h4>More narrow or specfic subjects will yield better results</h4>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="button-overlay">
+                <button id="short" class="rectangle-button" onclick="handleButtonClick('short')">Short</button>
+                <button id="medium" class="rectangle-button" onclick="handleButtonClick('medium')">Medium</button>
+                <button id="long" class="rectangle-button" onclick="handleButtonClick('Long')">Long</button>
+            </div>
+            <div class="card-content">
+                <div class="card-info-wrapper">
+                    <div class="card-info-title">
+                        <h3>Length</h3>  
+                        <h4>How long the free response is</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="button-overlay">
+                <button id="easy" class="rectangle-button" onclick="handleButtonClick('easy')">Easy</button>
+                <button id="medium" class="rectangle-button" onclick="handleButtonClick('medium')">Medium</button>
+                <button id="hard" class="rectangle-button" onclick="handleButtonClick('hard')">Hard</button>
+                <button id="very-hard" class="rectangle-button" onclick="handleButtonClick('very-hard')">Very Hard</button>
+            </div>
+            <div class="card-content">
+                <div class="card-info-wrapper">
+                    <div class="card-info-title">
+                        <h3>Difficulty</h3>  
+                        <h4>Difficulty of the questions in the test</h4>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <button class="submit-card">
+            <div class="submit-card-content">
+              <h3 class="submit-card-title">Continue</h3>
+              <h4 class="submit-card-subtitle"></h4>
+            </div>
+          </button>
+    </div>
+    <script defer src="js/cards.js"></script>
+    <script defer src="js/getFree.js"></script>
+</body>
+</html>

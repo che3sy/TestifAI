@@ -56,9 +56,124 @@
 
 .top-left-logo {
     position: fixed;
-    top: -70px;
-    left: -33px; 
-    width: 200px; 
+    top: 10px;
+    left: 5px; 
+    width: 150px; 
     height: auto;
     z-index: 1001; 
+}
+
+
+
+
+
+.answer-area {
+    width: 80%; /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Red Hat Display', sans-serif;
+    background-color: rgb(23, 23, 23); 
+    color: #ffffff; /* Ensure the text color is black */
+    z-index: 10; /* Ensure the input is on top of other elements */
+    position: relative;
+    top: 20%; /* Adjust position as needed */
+    left: 5%;
+    resize: none;
+    overflow: hidden;
+}
+.answer-area:hover {
+    border-color: #5e07e9; /* Change border color on hover */
+}
+.answer-area:focus {
+    border-color: #14d82e; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+
+
+.grade-button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #5e07e9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Red Hat Display', sans-serif;
+    position: relative;
+    margin-top: 30px;
+    transition: all .5s ease; 
+
+}
+
+.grade-button:hover {
+    background-color: green;
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all 0.4s ease-in-out; 
+}
+
+
+.shut{
+    background-color: gray;
+}
+
+
+.shut:hover {
+    background-color: gray;
+    
+}
+
+
+
+.rubric-container {
+    border: 1px solid #14d82e;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(20, 216, 46, 0.2);
+    font-family: 'Red Hat Display', sans-serif; 
+}
+
+.grade-text {
+    font-family: 'Red Hat Display', sans-serif; 
+    font-size: 18px;
+    font-weight: bold;
+    color: #2596be; 
+    margin-top: 20px;
+}
+
+.feedback-text {
+    font-family: 'Red Hat Display', sans-serif; 
+    font-size: 16px;
+    color: #FF453A;
+    margin-top: 20px
+}
+
+.rubric-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+    margin-top: 1px;
+}
+
+
+.loading-animation {
+    font-size: 35px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Red Hat Display', sans-serif; 
+    font-weight: bold;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }

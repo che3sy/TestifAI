@@ -71,7 +71,73 @@ document.querySelectorAll(".cards").forEach(cardsContainer => {
 
 
 document.getElementById('quiz-button').addEventListener('click', function() {
-  window.location.href = 'make_quiz.html';
+  window.location.href = 'pickQuiz.html';
 });
 
 
+const animatedImage = document.querySelector('.animated-image');
+const imageContainer = document.querySelector('.image-container');
+
+animatedImage.addEventListener('animationend', () => {
+  imageContainer.style.animation = 'moveUp 2s forwards';
+  
+});
+
+
+
+
+{
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+
+  const updateDotSizes = (activeDot) => {
+    dots.forEach(dot => {
+      const distance = Math.abs([...dots].indexOf(dot) - [...dots].indexOf(activeDot));
+      let scale;
+      if (dot === activeDot) {
+        scale = 2; // Make the active dot significantly larger
+      } else {
+        scale = Math.max(0.2, 1 - distance * 0.2); 
+      }
+      dot.style.transform = `scale(${scale})`;
+    });
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const activeDot = document.querySelector(`.dot[data-section="${entry.target.id}"]`);
+      if (entry.isIntersecting) {
+        activeDot.classList.add('active');
+        updateDotSizes(activeDot);
+      } else {
+        activeDot.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  // Initial update of dot sizes
+  const initialActiveDot = document.querySelector('.dot.active');
+  if (initialActiveDot) {
+    updateDotSizes(initialActiveDot);
+  }
+}
+
+
+
+const animatedstar = document.querySelector('.animated-star');
+
+animatedstar.addEventListener('animationend', () => {
+  document.body.classList.remove('no-scroll');
+});
+
+
+
+document.getElementById('animated-star').addEventListener('click', function() {
+  document.getElementById('fifth-section').scrollIntoView({ behavior: 'smooth' });
+});
