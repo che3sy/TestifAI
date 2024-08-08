@@ -621,14 +621,35 @@ body {
   transform: translateX(-50%);
   z-index: 10; /* Ensure it is above other elements */
   border-radius: 45px;
+
+
+
+  background-image: url('webassets/NAvGradient.svg');
+  background-size: cover; /* Adjusts the size of the background */
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  opacity: 0;
+  animation: opacityShow 3s forwards;
+  animation-delay: 9s;
 }
+
+@keyframes opacityShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 
 .navbar-item {
   color: white; /* Text color */
   font-size: 24px; /* Adjust the font size as needed */
   text-align: center;
   margin-right: 7vh;
-
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
+  transition: text-shadow 0.3s ease-in-out; /* Smooth transition */
 }
 
 .navbar-item2{
@@ -636,6 +657,8 @@ body {
   font-size: 24px; /* Adjust the font size as needed */
   text-align: center;
   margin-right: 1vh;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
+  transition: text-shadow 0.3s ease-in-out; /* Smooth transition */
 
 }
 
