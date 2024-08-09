@@ -24,7 +24,7 @@ function fetchData() {
             console.log('API Response:', data); // Log the API response for debugging
             id = data.id;
             console.log('ID:', id); // Log the id value
-
+            
             // Hide the loading screen
             loadingScreen.style.display = 'none';
 
@@ -53,9 +53,14 @@ function fetchData() {
 function displayQuestion(data) {
     const responseContainer = document.getElementById('response-container');
     responseContainer.innerHTML = ''; // Clear any existing content
-
+    
     const card = document.createElement('div');
     card.className = 'question-card';
+    
+    if (!data.question) {
+        window.location.reload();
+        return;
+    }
 
     const questionTitle = document.createElement('h2');
     questionTitle.className = 'question-title';
@@ -133,6 +138,7 @@ async function gradeAnswer(userAnswer, answerArea, gradeButton) {
     try {
         const response = await fetch(`https://x4f6ezfwiloumemi2tkgozxltu0ufwjn.lambda-url.us-west-2.on.aws/grade?id=${id}`);
         const gradeInfo = await response.json();
+
 
         // Remove the loading animation
         rubricContainer.removeChild(loadingElement);
@@ -236,3 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const { createClient } = supabase
 const _supabase = createClient('https://llhpftmlgrgmosegssmr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsaHBmdG1sZ3JnbW9zZWdzc21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjMwMTU1NDksImV4cCI6MjAzODU5MTU0OX0.Xmdjm4t5w9CBr0yKHjx_yP1nhGyoeqPZVKJXzfvfF4g')
+
+
+

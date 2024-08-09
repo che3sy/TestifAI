@@ -6,6 +6,7 @@ body {
 }
 
 hr {
+    width: 80%;
     border: 0;
     height: 1px;
     background: white; 
@@ -30,7 +31,7 @@ h1 {
     opacity: 0;
     transition: all 4s;
     filter: blur(5px);
-    transform: translateX(-100px);
+    transform: translateX(-200px);
 }
 
 .show {
@@ -42,7 +43,6 @@ h1 {
 
 
 
-/* Existing .question-card and .option-button styles */
 .question-card {
     position: relative;
     margin: 20px auto;
@@ -330,7 +330,8 @@ h1, h2, h3, h4, span {
   flex-grow: 1;
   justify-content: flex-start;
   padding: 0px 20px;
-  
+  margin: 0; /* Remove any default margin */
+  padding: 0;
 }
 
 .card-info {
@@ -559,10 +560,24 @@ body {
 
 
 .subtitle {
+  animation: horizontalWipeBack 1s forwards, horizontalWipe 1s forwards;
+  margin-top: 70vh;
   font-size: 4em;
   font-weight: 700;
+  text-align: center; 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+  animation-delay: 0s, 3s;
 }
+@keyframes horizontalWipeBack {
+  0% {
 
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+
+    clip-path: inset(0 0 0 0);
+  }
+}
 
 .logo-container {
   position: absolute;
@@ -579,6 +594,7 @@ body {
   transform-origin: top;
   animation-delay: 3s, 6s;
   z-index: 2; 
+  position: absolute;
 }
 
 @keyframes moveDown {
@@ -596,7 +612,7 @@ body {
     transform: translateY(150px) rotate(0deg) scale(1); /* Start from the end position of moveDown */
   }
   100% {
-    transform: translateY(-32vh) rotate(360deg) scale(0.4); /* Move up and rotate */
+    transform: translateY(-31.9vh) rotate(360deg) scale(0.4); /* Move up and rotate */
   }
 }
 
@@ -673,15 +689,7 @@ section {
 
 
 
-#first-section {
-  height: 100vh; /* Adjust the height as needed */
-  padding-bottom: 50px; /* Add padding to the bottom if needed */
-  background-size: cover; /* Adjusts the size of the background */
-  background-repeat: no-repeat; /* Prevents the background from repeating */
-  background-position: center; 
-  padding-top: 50px;
-  z-index: -1;
-}
+
 
 
 .tracking-dots {
@@ -726,4 +734,35 @@ section {
 
 html {
   scroll-behavior: smooth;
+}
+
+
+#first-section{
+  margin-top: 10vh;
+}
+
+
+
+.split{
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 4em;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
+}
+
+
+.centered-box {
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the paragraph */
+  text-align: center; /* Center the text */
+  font-size: 1.3em;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+
+h1{
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
 }
