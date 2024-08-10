@@ -23,7 +23,7 @@ const createWord = (text, index) => {
 const addWord = (text, index) => subtitle.appendChild(createWord(text, index));
 
 const createSubtitle = text => {
-  subtitle.innerHTML = ''; // Clear existing subtitle
+  subtitle.innerHTML = ''; 
   text.split(" ").map(addWord);
 }
 
@@ -43,7 +43,6 @@ const checkFormCompletion = () => {
   }
 }
 
-// Add event listeners for real-time form validation
 document.querySelector('.overlay-input').addEventListener('input', checkFormCompletion);
 document.querySelectorAll('.rectangle-button').forEach(button => {
   button.addEventListener('click', () => {

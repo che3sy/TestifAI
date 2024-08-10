@@ -491,49 +491,9 @@ h1, h2, h3, h4, span {
 
 
 
-body {
-  background-image: url('webassets/Gradient.svg');
-  background-size: cover; /* Adjusts the size of the background */
-  background-repeat: no-repeat; /* Prevents the background from repeating */
-  background-position: center center; /* Centers the background */
-  height: 100vh; /* Full viewport height */
-  margin: 0; /* Removes default margin */
-  background-repeat: repeat-y; /* This will repeat the background image both horizontally and vertically */
-}
 
 
 
-.image-container {
-  position: fixed;
-  inset: 0px;
-  width: auto;
-  height: 5rem;
-  max-width: 100vw;
-  max-height: 100dvh;
-  margin: auto;
-
-
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  
-}
-
-.animated-image {
-  width: 1000px;
-  height: auto;
-  animation: horizontalWipe2 2s forwards;
-  animation-delay: 3s;
-}
-
-.content {
-  opacity: 0;
-  transform: translateY(500px);
-  animation: fadeUp 3s forwards;
-  animation-delay: 9s;
-}
 
 
 @keyframes fadeUp {
@@ -559,25 +519,7 @@ body {
 
 
 
-.subtitle {
-  animation: horizontalWipeBack 1s forwards, horizontalWipe 1s forwards;
-  margin-top: 70vh;
-  font-size: 4em;
-  font-weight: 700;
-  text-align: center; 
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
-  animation-delay: 0s, 3s;
-}
-@keyframes horizontalWipeBack {
-  0% {
 
-    clip-path: inset(0 100% 0 0);
-  }
-  100% {
-
-    clip-path: inset(0 0 0 0);
-  }
-}
 
 .logo-container {
   position: absolute;
@@ -587,34 +529,7 @@ body {
   z-index: 10; /* Ensure it is above other elements */
 }
 
-.animated-star{
-  width: 1000px;
-  height: auto;
-  animation: moveDown 3s forwards, moveUpAndRotate 6s forwards;
-  transform-origin: top;
-  animation-delay: 3s, 6s;
-  z-index: 2; 
-  position: absolute;
-}
 
-@keyframes moveDown {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(150px); /* Adjust the value as needed */
-  }
-}
-
-
-@keyframes moveUpAndRotate {
-  0% {
-    transform: translateY(150px) rotate(0deg) scale(1); /* Start from the end position of moveDown */
-  }
-  100% {
-    transform: translateY(-31.9vh) rotate(360deg) scale(0.4); /* Move up and rotate */
-  }
-}
 
 
 
@@ -681,9 +596,8 @@ body {
 
 
 section {
-
-  background-size: contain; /* Adjusts the size of the background */
-  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-size: contain; 
+  background-repeat: no-repeat; 
   background-position: center; 
 }
 
@@ -747,14 +661,14 @@ html {
   font-family: 'Red Hat Display', sans-serif;
   font-size: 4em;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
 }
 
 
 .centered-box {
-  width: 80%; /* Adjust the width as needed */
-  margin: 0 auto; /* Center the paragraph */
-  text-align: center; /* Center the text */
+  width: 80%; 
+  margin: 0 auto; 
+  text-align: center;
   font-size: 1.3em;
   font-family: 'Red Hat Display', sans-serif;
 }
@@ -764,5 +678,5 @@ h1{
   font-family: 'Red Hat Display', sans-serif;
   font-size: 3em;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
 }

@@ -36,8 +36,7 @@
     width: 400px;
     height: 300px;
 
-    background: url('webassets/MGradient.svg') no-repeat center center fixed; 
-    background-size: contain; 
+
 }
 
 .quiz-card h2 {
@@ -173,5 +172,13 @@ for(const star of document.getElementsByClassName("magic-star")) {
     setInterval(() => animate(star), 1000);
   }, index++ * (interval / 3))
 }
+
+
+            document.body.style.backgroundImage = "url('webassets/SGradient.svg')";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundPosition = "center center";
+            document.body.style.backgroundAttachment = "fixed";
+            document.body.style.backgroundSize = "cover";
+        
 </script>
 </html>

@@ -112,11 +112,8 @@ function displayQuestions(questions) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loadingScreen = document.getElementById('loading-screen');
-    const responseContainer = document.getElementById('response-container');  
-    fetchData();
-});
+
+fetchData();
 
 function redirectToMakeQuiz() {
     window.location.href = 'pickQuiz.html';

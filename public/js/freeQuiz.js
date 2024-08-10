@@ -1,11 +1,8 @@
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 
 let id;
 
-// Function to fetch data from the API
+
 function fetchData() {
     const loadingScreen = document.getElementById('loading-screen');
     const responseContainer = document.getElementById('response-container');
@@ -84,13 +81,12 @@ function displayQuestion(data) {
     rubricContainer.className = 'rubric-container';
     rubricContainer.style.display = 'none';
 
-    // Create and append the rubric title
+
     const rubricTitle = document.createElement('h3');
-    rubricTitle.className = 'rubric-title'; // Add class for styling
+    rubricTitle.className = 'rubric-title';
     rubricTitle.textContent = 'Rubric:';
     rubricContainer.appendChild(rubricTitle);
 
-    // Append the rubric text
     const rubricText = document.createElement('p');
     rubricText.textContent = data.rubric;
     rubricContainer.appendChild(rubricText);
@@ -114,12 +110,12 @@ async function updateUserResponse(newResponse) {
 
 }
 
-// Function to grade the user's answer
+
 async function gradeAnswer(userAnswer, answerArea, gradeButton) {
     const responseContainer = document.getElementById('response-container');
     answerArea.setAttribute('readonly', true);
 
-    // Disable the grade button
+
     gradeButton.setAttribute('disabled', true);
     gradeButton.classList.add('shut');
     const rubricContainer = document.querySelector('.rubric-container');
@@ -138,17 +134,16 @@ async function gradeAnswer(userAnswer, answerArea, gradeButton) {
         const gradeInfo = await response.json();
 
 
-        // Remove the loading animation
+
         rubricContainer.removeChild(loadingElement);
 
-        // Display grade and feedback
         const gradeElement = document.createElement('p');
-        gradeElement.className = 'grade-text'; // Add class for styling
+        gradeElement.className = 'grade-text'; 
         gradeElement.textContent = `Grade: ${gradeInfo.grade}`;
         rubricContainer.appendChild(gradeElement);
 
         const feedbackElement = document.createElement('p');
-        feedbackElement.className = 'feedback-text'; // Add class for styling
+        feedbackElement.className = 'feedback-text';
         feedbackElement.textContent = `Feedback: ${gradeInfo.feedback}`;
         rubricContainer.appendChild(feedbackElement);
         
