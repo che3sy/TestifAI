@@ -35,7 +35,6 @@ const checkFormCompletion = () => {
   const selectedValues = Array.from(selectedButtons).map(button => button.textContent.trim());
 
   if (inputValue && selectedValues.length === 2) {
-      console.log('You can now click');
       createSubtitle("press to create test!");
       submitButton.classList.add("clickable");
   } else {

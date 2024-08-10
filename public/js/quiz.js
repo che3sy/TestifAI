@@ -63,6 +63,7 @@ function fetchData() {
             clearInterval(animationInterval);
         })
         .catch(error => {
+            window.location.reload();
             // Hide the loading screen
             loadingScreen.style.display = 'none';
 

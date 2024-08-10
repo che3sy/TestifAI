@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputBox = document.querySelector('.overlay-input');
     const buttons = document.querySelectorAll('.rectangle-button');
 
-    console.log('Input Box:', inputBox);
-    console.log('Buttons:', buttons);
+
 
 
 
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         buttons.forEach(button => {
             button.addEventListener('click', function(event) {
                 const buttonValue = button.textContent;
-                console.log('Button Value:', buttonValue);
+
     
                 // Get the parent div of the clicked button
                 const parentDiv = button.closest('.button-overlay');
@@ -38,10 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Define the handleButtonClick function
-function handleButtonClick(buttonId) {
-    console.log('Button clicked:', buttonId);
-}
+
 
 
 submitButton.addEventListener('click', () => {

@@ -1,3 +1,8 @@
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 let id;
 
 // Function to fetch data from the API
@@ -21,9 +26,7 @@ function fetchData() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            console.log('API Response:', data); // Log the API response for debugging
             id = data.id;
-            console.log('ID:', id); // Log the id value
             
             // Hide the loading screen
             loadingScreen.style.display = 'none';
@@ -109,11 +112,6 @@ async function updateUserResponse(newResponse) {
         .update({ Useranswer: newResponse})
         .eq('id', id)
 
-    if (error) {
-        console.error('Error updating Userresponse:', error);
-    } else {
-        console.log('Userresponse updated successfully:', data);
-    }
 }
 
 // Function to grade the user's answer
@@ -134,7 +132,7 @@ async function gradeAnswer(userAnswer, answerArea, gradeButton) {
 
     await updateUserResponse(userAnswer);
 
-    // Fetch grade information
+
     try {
         const response = await fetch(`https://x4f6ezfwiloumemi2tkgozxltu0ufwjn.lambda-url.us-west-2.on.aws/grade?id=${id}`);
         const gradeInfo = await response.json();
