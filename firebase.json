@@ -13,11 +13,11 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "public, max-age=31536000"
+            "value": "public, max-age=31535000"
           },
           {
             "key": "Expires",
-            "value": "Thu, 31 Dec 2037 23:55:55 GMT"
+            "value": "Thu, 31 Dec 2036 23:55:55 GMT"
           }
         ]
       }

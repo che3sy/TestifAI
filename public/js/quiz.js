@@ -178,14 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to fetch data from the API
     function fetchData2() {
-        fetch('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en')
+        fetch('https://official-joke-api.appspot.com/random_joke')
             .then(response => response.json())
             .then(data => {
-                factPlaceholder.innerText = data.text; // Update the placeholder with the fact
+                factPlaceholder.innerText = `${data.setup} - ${data.punchline}`; // Update the placeholder with the joke
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
-                factPlaceholder.innerText = 'Failed to load fact.';
+                factPlaceholder.innerText = 'Failed to load joke.';
             });
     }
 

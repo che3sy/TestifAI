@@ -560,7 +560,7 @@ h1, h2, h3, h4, span {
   background-repeat: no-repeat; /* Prevents the background from repeating */
   opacity: 0;
   animation: opacityShow 3s forwards;
-  animation-delay: 9s;
+  animation-delay: 4s;
 }
 
 @keyframes opacityShow {
