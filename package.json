@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.1"
+    "@supabase/supabase-js": "^2.45.1",
+    "firebase": "^10.13.1",
+    "katex": "^0.16.11"
   }
 }

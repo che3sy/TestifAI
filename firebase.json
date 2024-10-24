@@ -2,22 +2,14 @@
   "hosting": {
     "public": "public",
     "site": "testif-ai",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "headers": [
       {
-        "source": "**/*.@(js|css|html|svg)",
+        "source": "**/*.@(js|css|html|svg|png|jpg|jpeg|gif|webp|ico)",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "public, max-age=31535000"
-          },
-          {
-            "key": "Expires",
-            "value": "Thu, 31 Dec 2036 23:55:55 GMT"
+            "value": "public, max-age=2592000"
           }
         ]
       }

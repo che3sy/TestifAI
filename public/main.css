@@ -1,169 +1,156 @@
 body {
-    background-color:rgb(0, 0, 0);
-    color: white;
-    font-family: 'Red Hat Display', sans-serif;
-    
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 hr {
-    width: 80%;
-    border: 0;
-    height: 1px;
-    background: white; 
-    margin: 20px 0; 
-    border-radius: 10px; 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
-    margin: 20px auto;
+  width: 80%;
+  border: 0;
+  height: 1px;
+  background: white;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin: 20px auto;
 }
 
 section {
-    display: grid;
-    place-items: center;
-    min-height: 75vh;
+  display: grid;
+  place-items: center;
+  min-height: 75vh;
 }
 
 h1 {
-    text-align: center; 
-    margin: 0; 
+  text-align: center;
+  margin: 0;
 }
 
 .hidden {
-    opacity: 0;
-    transition: all 4s;
-    filter: blur(5px);
-    transform: translateX(-200px);
+  opacity: 0;
+  transition: all 4s;
+  filter: blur(5px);
+  transform: translateX(-200px);
 }
 
 .show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
 
-
-
-
 .question-card {
-    position: relative;
-    margin: 20px auto;
-    background-color: rgb(23, 23, 23);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    color: #ffffff;
-    font-family: 'Red Hat Display', sans-serif;
+  position: relative;
+  margin: 20px auto;
+  background-color: rgb(23, 23, 23);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  color: #ffffff;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 .question-card p {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 .question-title {
-    margin-top: -5px; 
-    font-family: 'Red Hat Display', sans-serif;
+  margin-top: -5px;
+  font-family: "Red Hat Display", sans-serif;
 }
-
 
 .option-button {
-    background: rgb(23, 23, 23);
-    color: #ffffff;
-    border: 1px solid;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    padding: 10px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    text-align: left;
-    border-color: rgba(45,186,78, 0.4);
+  background: rgb(23, 23, 23);
+  color: #ffffff;
+  border: 1px solid;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border-color: rgba(45, 186, 78, 0.4);
 }
 
+.scroller {
+  max-width: 975px;
+  margin: 0 auto;
+  margin-top: -60px;
+}
 
+.scroller__inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+  --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+@keyframes blurEffect {
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
 
 .scroller {
-    max-width: 975px;
-    margin: 0 auto;
-    margin-top: -60px;
-  }
-  
-  .scroller__inner {
-    padding-block: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-  }
-  
-  .scroller[data-animated="true"] {
-    overflow: hidden;
-    -webkit-mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 80%,
-      transparent
-    );
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-  }
-  
-  .scroller[data-animated="true"] .scroller__inner {
-    width: max-content;
-    flex-wrap: nowrap;
-    animation: scroll var(--_animation-duration, 40s)
-      var(--_animation-direction, forwards) linear infinite;
-  }
-  
-  .scroller[data-direction="right"] {
-    --_animation-direction: reverse;
-  }
-  
-  .scroller[data-direction="left"] {
-    --_animation-direction: forwards;
-  }
-  
-  .scroller[data-speed="fast"] {
-    --_animation-duration: 20s;
-  }
-  
-  .scroller[data-speed="slow"] {
-    --_animation-duration: 60s;
-  }
-  
-  @keyframes scroll {
-    to {
-      transform: translate(calc(-50% - 0.5rem));
-    }
-  }
-
-
-  @keyframes blurEffect {
-    0% {
-      filter: blur(10px);
-    }
-    100% {
-      filter: blur(0);
-    }
-  }
-  
-  .scroller {
-    animation: blurEffect 8s ease-out;
-  }
-
-
-
-
+  animation: blurEffect 8s ease-out;
+}
 
 @keyframes fadeOut {
   from {
-      opacity: 1;
+    opacity: 1;
   }
   to {
-      opacity: 0;
+    opacity: 0;
   }
 }
-
 
 @keyframes zoom {
   from {
@@ -174,45 +161,24 @@ h1 {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;  
+  gap: 8px;
   width: calc(100% - 20px);
-  justify-content: center; 
-  align-items: center; 
-  padding: 20px; 
-
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-
-
-
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;  
+  gap: 8px;
   width: calc(100% - 20px);
-  justify-content: center; 
-  align-items: center; 
-  padding: 20px; 
-
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .cards:hover > .card::after {
@@ -228,7 +194,7 @@ h1 {
   height: 260px;
   flex-direction: column;
   position: relative;
-  width: 300px;  
+  width: 300px;
 }
 
 .card:hover::before {
@@ -250,17 +216,17 @@ h1 {
 
 .card::before {
   background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y), 
-    rgba(45,186,78, 0.06),
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(45, 186, 78, 0.06),
     transparent 40%
   );
   z-index: 3;
 }
 
-.card::after {  
+.card::after {
   background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y), 
-    rgba(45,186,78, 0.4),
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(45, 186, 78, 0.4),
     transparent 40%
   );
   z-index: 1;
@@ -278,10 +244,13 @@ h1 {
   z-index: 2;
 }
 
-
-h1, h2, h3, h4, span {
+h1,
+h2,
+h3,
+h4,
+span {
   color: rgb(240, 240, 240);
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: "Red Hat Display", sans-serif;
   font-weight: 400;
   margin: 0px;
 }
@@ -292,15 +261,14 @@ h1, h2, h3, h4, span {
   height: 140px;
   justify-content: center;
   overflow: hidden;
-
 }
 
 @keyframes fadeIn {
   from {
-      opacity: 0.75;
+    opacity: 0.75;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -310,19 +278,16 @@ h1, h2, h3, h4, span {
 
 .card-content img.card-image-2 {
   display: none;
-
 }
 
 .card:hover .card-content img.card-image-1 {
   display: none;
-
 }
 
 .card:hover .card-content img.card-image-2 {
   display: block;
   animation: fadeIn 0.25s forwards;
 }
-
 
 .card-info-wrapper {
   align-items: center;
@@ -340,7 +305,7 @@ h1, h2, h3, h4, span {
   gap: 10px;
 }
 
-.card-info > img {  
+.card-info > img {
   font-size: 1em;
   height: 20px;
   line-height: 20px;
@@ -349,62 +314,60 @@ h1, h2, h3, h4, span {
 .card-info-title > h3 {
   font-size: 1.1em;
   line-height: 20px;
-
 }
 
 .card img {
   width: 100%;
   height: 75%;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
 .card-info-title > h4 {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.85em;
   margin-top: 8px;
-
 }
 
 /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
   body {
-    align-items: flex-start;  
+    align-items: flex-start;
     overflow: auto;
   }
-  
-  #cards {    
+
+  #cards {
     max-width: 1000px;
     padding: 10px 0px;
   }
-  
+
   .card {
     flex-shrink: 1;
     width: calc(50% - 4px);
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .card {
     height: 180px;
   }
-  
+
   .card-image {
-    height: 80px;  
+    height: 80px;
   }
-  
+
   .card-image > i {
     font-size: 3em;
   }
-    
+
   .card-info-wrapper {
     padding: 0px 10px;
   }
-  
-  .card-info > i { 
-    font-size: 0.8em; 
+
+  .card-info > i {
+    font-size: 0.8em;
   }
-  
+
   .card-info-title > h3 {
     font-size: 0.9em;
   }
@@ -415,15 +378,11 @@ h1, h2, h3, h4, span {
   }
 }
 
-@media(max-width: 320px) {
+@media (max-width: 320px) {
   .card {
     width: 100%;
   }
 }
-
-
-
-
 
 .create-quiz {
   display: flex;
@@ -438,7 +397,6 @@ h1, h2, h3, h4, span {
   color: inherit;
   outline: inherit;
 }
-
 
 .create-quiz-content {
   position: relative; /* Ensure the container is positioned */
@@ -461,8 +419,6 @@ h1, h2, h3, h4, span {
   z-index: 1; /* Place this image below */
 }
 
-
-
 .create-quiz-content .quiz-button-img {
   content: url("webassets/Component 7 (2).png");
   display: block;
@@ -478,23 +434,12 @@ h1, h2, h3, h4, span {
 
 @keyframes horizontalWipe {
   0% {
-
     clip-path: inset(0 0 0 0);
   }
   100% {
-
     clip-path: inset(0 100% 0 0);
   }
 }
-
-
-
-
-
-
-
-
-
 
 @keyframes fadeUp {
   to {
@@ -502,11 +447,6 @@ h1, h2, h3, h4, span {
     transform: translateY(0);
   }
 }
-
-
-
-
-
 
 @keyframes horizontalWipe2 {
   0% {
@@ -517,10 +457,6 @@ h1, h2, h3, h4, span {
   }
 }
 
-
-
-
-
 .logo-container {
   position: absolute;
   top: -190px; /* Adjust this value as needed */
@@ -529,15 +465,9 @@ h1, h2, h3, h4, span {
   z-index: 10; /* Ensure it is above other elements */
 }
 
-
-
-
-
-
 .navbar {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
   margin-top: 2px;
-
 
   width: 25%;
   height: 60px; /* Adjust the height as needed */
@@ -546,16 +476,14 @@ h1, h2, h3, h4, span {
   justify-content: center; /* Center the item horizontally */
   align-items: center; /* Center the item vertically */
   position: fixed; /* Fix the navbar at the top */
-  
+
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10; /* Ensure it is above other elements */
   border-radius: 45px;
 
-
-
-  background-image: url('webassets/NAvGradient.svg');
+  background-image: url("webassets/NAvGradient.svg");
   background-size: cover; /* Adjusts the size of the background */
   background-repeat: no-repeat; /* Prevents the background from repeating */
   opacity: 0;
@@ -572,8 +500,6 @@ h1, h2, h3, h4, span {
   }
 }
 
-
-
 .navbar-item {
   color: white; /* Text color */
   font-size: 24px; /* Adjust the font size as needed */
@@ -583,31 +509,22 @@ h1, h2, h3, h4, span {
   transition: text-shadow 0.3s ease-in-out; /* Smooth transition */
 }
 
-.navbar-item2{
+.navbar-item2 {
   color: white; /* Text color */
   font-size: 24px; /* Adjust the font size as needed */
   text-align: center;
   margin-right: 1vh;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
   transition: text-shadow 0.3s ease-in-out; /* Smooth transition */
-
 }
-
-
 
 section {
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-
-
-
-
-
 .tracking-dots {
-  
   position: fixed;
   top: 50%;
   left: 10px;
@@ -625,7 +542,9 @@ section {
   background-color: white;
   border-radius: 50%;
   opacity: 0.5;
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
   z-index: 1001;
 }
 
@@ -635,48 +554,53 @@ section {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-
-
-
-
-
-
 .no-scroll {
   overflow: hidden;
 }
-
 
 html {
   scroll-behavior: smooth;
 }
 
-
-#first-section{
+#first-section {
   margin-top: 10vh;
 }
 
-
-
-.split{
-  font-family: 'Red Hat Display', sans-serif;
+.split {
+  font-family: "Red Hat Display", sans-serif;
   font-size: 4em;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
-
 
 .centered-box {
-  width: 80%; 
-  margin: 0 auto; 
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
   font-size: 1.3em;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: "Red Hat Display", sans-serif;
 }
 
-
-h1{
-  font-family: 'Red Hat Display', sans-serif;
+h1 {
+  font-family: "Red Hat Display", sans-serif;
   font-size: 3em;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.update {
+  color: #2dbae8;
+  text-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+}
+
+.update-li {
+  color: #2dbae8;
+  font-size: 1.3em;
+  font-family: "Red Hat Display", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }

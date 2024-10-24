@@ -1,32 +1,17 @@
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-
-
-        }
-        else {
-            entry.target.classList.remove('show');
-
-
-        }
-    });
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((element) => {observer.observe(element)});
-
-
-
-
-
-
-
-
-
-
-
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((element) => {
+  observer.observe(element);
+});
 
 const scrollers = document.querySelectorAll(".scroller");
 
@@ -55,13 +40,12 @@ function addAnimation() {
   });
 }
 
-
-document.querySelectorAll(".cards").forEach(cardsContainer => {
-  cardsContainer.onmousemove = e => {
-    for(const card of cardsContainer.getElementsByClassName("card")) {
+document.querySelectorAll(".cards").forEach((cardsContainer) => {
+  cardsContainer.onmousemove = (e) => {
+    for (const card of cardsContainer.getElementsByClassName("card")) {
       const rect = card.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
+        x = e.clientX - rect.left,
+        y = e.clientY - rect.top;
 
       card.style.setProperty("--mouse-x", `${x}px`);
       card.style.setProperty("--mouse-y", `${y}px`);
@@ -69,75 +53,74 @@ document.querySelectorAll(".cards").forEach(cardsContainer => {
   };
 });
 
-
-document.getElementById('quiz-button').addEventListener('click', function() {
-  window.location.href = 'pickQuiz.html';
+document.getElementById("quiz-button").addEventListener("click", function () {
+  window.location.href = "pickQuiz.html";
 });
 
+const animatedImage = document.querySelector(".animated-image");
+const imageContainer = document.querySelector(".image-container");
 
-const animatedImage = document.querySelector('.animated-image');
-const imageContainer = document.querySelector('.image-container');
-
-animatedImage.addEventListener('animationend', () => {
-  imageContainer.style.animation = 'moveUp 2s forwards';
-  
+animatedImage.addEventListener("animationend", () => {
+  imageContainer.style.animation = "moveUp 2s forwards";
 });
-
-
-
 
 {
-  const sections = document.querySelectorAll('section');
-  const dots = document.querySelectorAll('.dot');
+  const sections = document.querySelectorAll("section");
+  const dots = document.querySelectorAll(".dot");
 
   const updateDotSizes = (activeDot) => {
-    dots.forEach(dot => {
-      const distance = Math.abs([...dots].indexOf(dot) - [...dots].indexOf(activeDot));
+    dots.forEach((dot) => {
+      const distance = Math.abs(
+        [...dots].indexOf(dot) - [...dots].indexOf(activeDot),
+      );
       let scale;
       if (dot === activeDot) {
         scale = 2; // Make the active dot significantly larger
       } else {
-        scale = Math.max(0.2, 1 - distance * 0.2); 
+        scale = Math.max(0.2, 1 - distance * 0.2);
       }
       dot.style.transform = `scale(${scale})`;
     });
   };
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const activeDot = document.querySelector(`.dot[data-section="${entry.target.id}"]`);
-      if (entry.isIntersecting) {
-        activeDot.classList.add('active');
-        updateDotSizes(activeDot);
-      } else {
-        activeDot.classList.remove('active');
-      }
-    });
-  }, {
-    threshold: 0.5
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const activeDot = document.querySelector(
+          `.dot[data-section="${entry.target.id}"]`,
+        );
+        if (entry.isIntersecting) {
+          activeDot.classList.add("active");
+          updateDotSizes(activeDot);
+        } else {
+          activeDot.classList.remove("active");
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    },
+  );
 
-  sections.forEach(section => {
+  sections.forEach((section) => {
     observer.observe(section);
   });
 
   // Initial update of dot sizes
-  const initialActiveDot = document.querySelector('.dot.active');
+  const initialActiveDot = document.querySelector(".dot.active");
   if (initialActiveDot) {
     updateDotSizes(initialActiveDot);
   }
 }
 
+const animatedstar = document.querySelector(".animated-star");
 
-
-const animatedstar = document.querySelector('.animated-star');
-
-animatedstar.addEventListener('animationend', () => {
-  document.body.classList.remove('no-scroll');
+animatedstar.addEventListener("animationend", () => {
+  document.body.classList.remove("no-scroll");
 });
 
-
-
-document.getElementById('animated-star').addEventListener('click', function() {
-  document.getElementById('fifth-section').scrollIntoView({ behavior: 'smooth' });
+document.getElementById("animated-star").addEventListener("click", function () {
+  document
+    .getElementById("fifth-section")
+    .scrollIntoView({ behavior: "smooth" });
 });
